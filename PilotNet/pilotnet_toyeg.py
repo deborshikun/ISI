@@ -40,7 +40,7 @@ P_res  = 0.0                   # P-layer accumulator
 # Thresholds
 # ------------------------------------------------------------------
 thrX   = 0.5   # threshold for X Δ
-thrYZ  = 1.0   # threshold for Y/Z Δ
+thrYZ  = 1.5   # threshold for Y/Z Δ
 
 # ------------------------------------------------------------------
 # Convolution kernels
