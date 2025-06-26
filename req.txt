@@ -14,7 +14,7 @@ Done:
 2. Toy eg, PilotNet Hardcoded Matrices code.
 3. Toy eg, z3 solver running.
 4. onnx file reading, conversion to equations.
-5.** equations to z3 readable equations.
+5. equations to z3 readable equations.
 
 
 Papers to be read:
