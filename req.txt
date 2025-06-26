@@ -1,0 +1,25 @@
+Requirements:
+1. PilotNet simultaion --> use trained model from shrishendu da's code, and for any dashcam given video, find the angles for each frame (pilotnet)
+2. z3 solver --> given an onnx file, you will find the equations relating to the nodes of the said onnx, and you will feed these equations to z3-solver and for a given constraint, find SAT or UNSAT
+3. use AcasXu onnx and its given constraints for z3,**  
+
+
+Optional:
+1. Use toy example sdnn to form an onnx file ourselves. Used to test out equations for z3 solver.
+2. Ask Sir about how to use z3-solver, and how to fit the constraints for z3.		
+
+
+Done:
+1. SDNN mnist code.
+2. Toy eg, PilotNet Hardcoded Matrices code.
+3. Toy eg, z3 solver running.
+4. onnx file reading, conversion to equations.
+5.** equations to z3 readable equations.
+
+
+Papers to be read:
+1. LCTES paper done.
+2. nnv book done.
+3. CSP slides done.
+4. 
+  
