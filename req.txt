@@ -6,7 +6,8 @@ Requirements:
 
 Optional:
 1. Use toy example sdnn to form an onnx file ourselves. Used to test out equations for z3 solver.
-2. Ask Sir about how to use z3-solver, and how to fit the constraints for z3.		
+2. Ask Sir about how to use z3-solver, and how to fit the constraints for z3.	
+3. Ask srishendu to give code of his LCTES paper, if sir agrees.
 
 
 Done:
