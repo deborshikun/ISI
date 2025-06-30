@@ -3,19 +3,12 @@ import re
 import sys
 
 def create_z3_script(input_equations_path: str):
-    """
-    Reads a file containing model equations and generates a runnable Z3 Python script
-    that is structurally similar to the user's NNDemo.py example.
-
-    Args:
-        input_equations_path (str): The path to the .txt file with the equations.
-    """
     if not os.path.exists(input_equations_path):
         print(f"Error: Input file not found at '{input_equations_path}'")
         return
 
-    # --- Phase 1: Discover all variables and their sizes ---
-    print(f" Phase 1: Discovering variables from '{input_equations_path}'...")
+    # Discover all variables and their sizes
+    print(f"Discovering variables from '{input_equations_path}'...")
     var_pattern = re.compile(r'([a-zA-Z_][a-zA-Z0-9_]*)\[(\d+)\]')
     var_sizes = {}
     with open(input_equations_path, 'r') as f:
@@ -29,8 +22,8 @@ def create_z3_script(input_equations_path: str):
 
     print(f"Found {len(var_sizes)} vector variables.")
 
-    # --- Phase 2: Parse all equations and categorize them ---
-    print("✍️  Phase 2: Parsing and categorizing all equations...")
+    # Parse all equations and categorize them
+    print("Parsing and categorizing all equations...")
     equality_strings = []
     relu_strings = []
 
@@ -57,8 +50,8 @@ def create_z3_script(input_equations_path: str):
             else:
                 equality_strings.append(z3_eq)
 
-    # --- Phase 3: Generate the Z3 script content in the desired format ---
-    print("🏗️  Phase 3: Assembling the final Z3 script...")
+    # Generate the Z3 script content in the desired format
+    print("Assembling the final Z3 script...")
     
     output_script_lines = []
     
@@ -93,18 +86,18 @@ def create_z3_script(input_equations_path: str):
     output_script_lines.append("# ]")
     output_script_lines.append("Bounds = []\n")
 
-    # Add the solver command, exactly like NNDemo.py
+    # Add the solver command
     output_script_lines.append("# --- Solve ---")
     output_script_lines.append("solve(RELU + Bounds + Eq)")
     
-    # --- Phase 4: Write the generated script to a file ---
+    # Write the generated script to a file ---
     output_script_path = os.path.splitext(input_equations_path)[0] + "_z3_script.py"
-    print(f"\n Phase 4: Writing final script to '{output_script_path}'...")
+    print(f"\nWriting final script to '{output_script_path}'...")
     
     try:
         with open(output_script_path, 'w') as f:
             f.write("\n".join(output_script_lines))
-        print(f"Successfully generated Z3 script!")
+        print(f"Successfully generated Z3 script")
     except Exception as e:
         print(f"Error writing to file: {e}")
 
